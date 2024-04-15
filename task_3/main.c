@@ -28,6 +28,8 @@ static int exec_with_status(char *prog1) {
         
         return status;
     }
+    
+    return 0;
 }
 
 /* Execute the program and redirect its output to the given pipe */
