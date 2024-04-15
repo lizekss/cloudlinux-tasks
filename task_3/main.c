@@ -68,7 +68,7 @@ static void exec_pipe_in_file_out(char *prog3, int *pipe_fd, char *file) {
             exit_error("dup2");
         }
 
-        int fd = open(file, O_CREAT | O_RDWR, 0666); // Open the file for writing
+        int fd = open(file, O_CREAT | O_RDWR | O_TRUNC, 0666); // Open the file for writing
         if (fd < 0) {
             exit_error("open");
         }
