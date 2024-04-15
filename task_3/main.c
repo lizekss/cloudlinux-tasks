@@ -11,24 +11,24 @@ static void exit_error(char *info) {
 
 /* Execute the given program and return its exit status */
 static int exec_with_status(char *prog1) {
-	// Fork-exec technique
+    // Fork-exec technique
     int pid = fork();
 
-	if (pid == 0) {
-		// Child process
+    if (pid == 0) {
+        // Child process
         execlp(prog1, prog1, NULL);
         exit_error("execlp"); // Exec only returns on failure
-	} else if (pid < 0) {
-		// Error
+    } else if (pid < 0) {
+        // Error
         exit_error("fork");
     } else {
-    	// Parent process
+        // Parent process
         int status;
-		wait(&status);
+        wait(&status);
         
         return status;
     }
-    
+
     return 0;
 }
 
